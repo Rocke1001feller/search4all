@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Install dependencies
 COPY ./web/package*.json ./
-RUN npm install
+RUN npm install --registry=https://registry.npmmirror.com
 COPY ./web .
 
 # Compile Next.js and configure distDir
@@ -19,7 +19,7 @@ WORKDIR /app
 
 # Install Python dependencies
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 # Copy Next.js build artifacts from the build stage
 COPY --from=build-stage /app/NEXT_BUILD /app/ui
@@ -28,7 +28,7 @@ COPY search4all.py .
 
 # Set environment variables
 ENV PORT 8800
-ENV BACKEND=""
+ENV BACKEND="SERPER"
 ENV OPENAI_API_KEY=""
 ENV GROQ_API_KEY=""
 ENV ANTHROPIC_API_KEY=""
@@ -42,7 +42,7 @@ ENV NEXT_PUBLIC_GOOGLE_ANALYTICS=""
 # API keys
 ENV BING_SEARCH_V7_SUBSCRIPTION_KEY=""
 ENV GOOGLE_SEARCH_API_KEY=""
-ENV SERPER_SEARCH_API_KEY=""
+ENV SERPER_SEARCH_API_KEY="fa658e1576f44d97415a230d55706aec5eafde8e"
 ENV SEARCHAPI_API_KEY=""
 ENV SEARCH1API_KEY=""
 

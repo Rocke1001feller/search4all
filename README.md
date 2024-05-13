@@ -43,7 +43,7 @@ Just click on it
 ### Docker
 Change the environment variables and run the docker
 ```
-docker run -d --name search4all -e OPENAI_API_KEY=sk-XXX -e OPENAI_BASE_URL=https://api.openai.com/v1 -e LLM_MODEL=gpt-3.5-turbo-0125 -e RELATED_QUESTIONS=1 -e SEARCH1API_KEY=XXX -e BACKEND=SEARCH1API -p 8800:8800 docker.io/fatwang2/search4all
+docker run -it --entrypoint=/bin/sh --name search4all -e OPENAI_API_KEY=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyLWNlbnRlciIsImV4cCI6MTcyMzM2MjExOCwiaWF0IjoxNzE1NTg2MTE4LCJqdGkiOiJjcDBzOGhpdG5uMHF0MzUwcW5wMCIsInR5cCI6InJlZnJlc2giLCJzdWIiOiJjcDBuMGFqNWNmdWozZ2NqcTY5MCIsInNwYWNlX2lkIjoiY3AwbjBhajVjZnVqM2djanE2ODAiLCJhYnN0cmFjdF91c2VyX2lkIjoiY3AwbjBhajVjZnVqM2djanE2N2cifQ.wG8ZW-CKLwvuE8wt4kiMr-3uft5Go8Smy-vKFv6OpJORoqTk1Jmip3ju3zXQA18PA-v9unH4YMSgGzvfjZOWWg -e OPENAI_BASE_URL=http://127.0.01:8002/v1 -e BACKEND=SERPER -e SERPER_SEARCH_API_KEY=fa658e1576f44d97415a230d55706aec5eafde8e  -e LLM_MODEL=gpt-3.5-turbo-0125 -e RELATED_QUESTIONS=1  -e CHAT_HISTORY=1 --network=host docker.io/fatwang2/search4all
 ```
 
 ### Docker-Compose
